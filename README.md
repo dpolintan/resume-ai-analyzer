@@ -47,7 +47,7 @@ The application uses pattern recognition to analyze resumes for:
 - **Next.js 14** - React framework with App Router
 - **TypeScript** - Type-safe development
 - **Tailwind CSS** - Utility-first CSS framework
-- **pdf-parse** - PDF text extraction
+- **Custom PDF Parser** - Reliable PDF text extraction
 - **Lucide React** - Beautiful icons
 
 ## API Endpoints
