@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resume AI Detector
+
+A Next.js application that analyzes PDF resumes to determine the likelihood that they were created using AI tools.
+
+## Features
+
+- **PDF Upload**: Drag and drop or click to upload PDF resume files
+- **AI Analysis**: Advanced text pattern analysis to detect AI-generated content
+- **Percentage Score**: Clear percentage indicating AI probability
+- **Modern UI**: Beautiful, responsive interface with Tailwind CSS
+- **Real-time Feedback**: Instant analysis results with confidence indicators
+
+## How It Works
+
+The application uses pattern recognition to analyze resumes for:
+
+### AI Indicators
+- Generic, overused phrases ("results-driven professional", "proven track record")
+- Repetitive sentence structures
+- Overly formal language patterns
+- Lack of specific personal details
+
+### Human Indicators
+- Specific personal achievements and dates
+- Technical skills and tools mentioned
+- Casual, conversational language
+- Unique experiences and accomplishments
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+3. **Open your browser** and navigate to `http://localhost:3000`
+
+4. **Upload a PDF resume** and click "Analyze Resume" to get your AI probability score
+
+## Technology Stack
+
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first CSS framework
+- **pdf-parse** - PDF text extraction
+- **Lucide React** - Beautiful icons
+
+## API Endpoints
+
+### POST `/api/analyze`
+Analyzes a PDF resume and returns AI probability score.
+
+**Request**: FormData with PDF file
+**Response**: 
+```json
+{
+  "aiProbability": 75.3,
+  "wordCount": 450,
+  "textLength": 2847
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## File Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/
+│   ├── api/
+│   │   └── analyze/
+│   │       └── route.ts      # API endpoint for analysis
+│   ├── globals.css           # Global styles
+│   ├── layout.tsx            # Root layout
+│   └── page.tsx              # Main application page
+└── components/               # Reusable components (if any)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Limitations
 
-## Learn More
+- Analysis is based on text patterns and may not be 100% accurate
+- Results are for informational purposes only
+- Works best with English-language resumes
+- Requires PDF files with extractable text
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Feel free to submit issues and enhancement requests!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License
